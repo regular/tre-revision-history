@@ -5,7 +5,8 @@ const pull = require('pull-stream')
 
 module.exports = function(ssb) {
 
-  return function history(revRoot) {
+  return function history(revRoot, opts) {
+    opts = opts || {}
     let items = []
     let synced = false
     let drain
@@ -35,6 +36,8 @@ module.exports = function(ssb) {
         drain.abort()
       }
     })
-    return computed(array, a => ssbSort(a))
+    return computed(array, a => {
+      return opts.reverse ? ssbSort(a).reverse() : ssbSort(a)
+    })
   }
 }
