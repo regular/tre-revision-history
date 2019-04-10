@@ -29,7 +29,7 @@ function Observable (value, opts) {
     const isFirst = listeners.length == 0
     listeners.push(listener)
     if (isFirst && opts.onStartListening) {
-      console.log('first listener')
+      //debug('first listener')
       opts.onStartListening()
     }
 
@@ -42,7 +42,7 @@ function Observable (value, opts) {
         }
       }
       if (isLast && opts.onStopListening) {
-        console.log('lastlistener')
+        //debug('lastlistener')
         opts.onStopListening()
       }
     }

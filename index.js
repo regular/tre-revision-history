@@ -13,11 +13,9 @@ module.exports = function(ssb) {
     let array
     array = Observable([], {
       onStartListening: ()=>{
-        console.warn('Watching history for ', revRoot)
         items = []
         synced = false
         drain = pull.drain( item => {
-          console.log('hist',item)
           if (item.sync) {
             synced = true
             return array.set(items)
@@ -32,7 +30,6 @@ module.exports = function(ssb) {
         }), drain)
       },
       onStopListening: ()=>  {
-        console.warn('aborting history for ', revRoot)
         drain.abort()
       }
     })
