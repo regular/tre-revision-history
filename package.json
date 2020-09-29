@@ -18,8 +18,9 @@
   },
   "homepage": "https://github.com/regular/tre-revision-history#readme",
   "dependencies": {
-    "mutant": "^3.22.1",
-    "pull-stream": "^3.6.9",
+    "debug": "^4.2.0",
+    "mutant": "^3.29.0",
+    "pull-stream": "^3.6.14",
     "ssb-sort": "^1.1.3"
   }
 }
